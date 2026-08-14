@@ -27,7 +27,7 @@ export function FirstView() {
 
         <a
           href="#products"
-          className="mt-5 inline-flex items-center justify-center rounded-sm bg-[#b01f24] px-4 py-2 w-60 text-white transition-colors hover:bg-[#8a181c]"
+          className="mt-5 inline-flex w-full max-w-40 items-center justify-center rounded-sm bg-[#b01f24] px-4 py-2 text-white transition-colors hover:bg-[#8a181c] sm:max-w-48 md:max-w-52 lg:max-w-60"
         >
           Collections →
         </a>

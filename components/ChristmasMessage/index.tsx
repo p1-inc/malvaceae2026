@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { KirakiraParallax } from "./KirakiraParallax";
+import { MaskedSlideUp } from "./MaskedSlideUp";
 
 export function ChristmasMessage() {
   return (
@@ -17,11 +18,12 @@ export function ChristmasMessage() {
       />
       <KirakiraParallax />
       <div className="relative z-10 mx-auto max-w-3xl">
-        <p className="text-md tracking-[0.5em] text-[#b01f24]">
-          CHRISTMAS COLLECTION
-        </p>
+        <MaskedSlideUp
+          text="CHRISTMAS COLLECTION"
+          className="text-base tracking-[0.5em] text-[#b01f24]"
+        />
 
-        <p className="mt-8 font-serif text-md leading-12 text-zinc-600 md:text-lg">
+        <p className="mt-8 font-serif text-base leading-12 text-zinc-600 md:text-lg">
           街がまばゆい光に包まれる、特別な季節。 <br />
           心躍るクリスマスの足音が聞こえてきます。 <br />
           <br />
