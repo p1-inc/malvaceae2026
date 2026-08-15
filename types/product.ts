@@ -1,3 +1,14 @@
+export type ProductDetails = {
+  code: string;
+  materials: string[];
+  gem: string[];
+  size: string;
+  chain?: string[];
+  band?: string;
+  ringSize?: string;
+  hardware?: string[];
+};
+
 export type Product = {
   id: string;
   name: string;
@@ -6,4 +17,5 @@ export type Product = {
   href: string;
   category?: "ring" | "necklace" | "pierce" | "bracelet" | "other";
   description?: string;
+  details: ProductDetails;
 };
