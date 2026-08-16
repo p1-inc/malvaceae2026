@@ -11,9 +11,13 @@ import {
 
 type ProductCardProps = {
   product: Product;
+  imageSizes?: string;
 };
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({
+  product,
+  imageSizes = "(min-width: 1024px) 20vw, (min-width: 640px) 45vw, 30vw",
+}: ProductCardProps) {
   const { details } = product;
 
   const rows = [
@@ -41,7 +45,7 @@ export function ProductCard({ product }: ProductCardProps) {
               alt={product.name}
               fill
               className="object-cover transition-opacity duration-300 group-hover:opacity-80"
-              sizes="(min-width: 1024px) 20vw, (min-width: 640px) 45vw, 30vw"
+              sizes={imageSizes}
             />
           </div>
           <div className="mt-3 space-y-0.5">
@@ -58,7 +62,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </button>
       </DialogTrigger>
 
-      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sm:max-w-3xl md:p-10">
+      <DialogContent className="p-6 sm:max-w-3xl md:p-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-start">
           <div className="relative mx-auto aspect-square w-full max-w-sm shrink-0 overflow-hidden bg-zinc-100 md:mx-0">
             <Image

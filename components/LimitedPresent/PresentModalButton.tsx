@@ -26,7 +26,7 @@ export function PresentModalButton() {
           詳しくは →
         </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-4xl p-12">
+      <DialogContent className="p-6 sm:max-w-4xl sm:p-12">
         <DialogHeader>
           <DialogTitle className="font-serif text-lg">
             クリスマス限定プレゼント

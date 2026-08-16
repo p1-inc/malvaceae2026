@@ -8,7 +8,7 @@ import { products } from "@/lib/products";
 export default function Home() {
   return (
     <>
-      <FirstView />
+      <FirstView products={products} />
       <ProductList products={products} />
       <ChristmasMessage />
       <QualityBanner />

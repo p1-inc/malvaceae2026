@@ -20,7 +20,7 @@ export function QualityModalButton() {
           詳しくは →
         </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-4xl p-12">
+      <DialogContent className="p-6 sm:max-w-4xl sm:p-12">
         <div className="flex items-start gap-4 h-48">
           <div className="min-w-0 mt-12">
             <h1 className="font-serif text-lg">

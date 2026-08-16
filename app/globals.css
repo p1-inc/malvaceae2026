@@ -133,3 +133,12 @@ body {
     @apply font-sans;
   }
 }
+
+/* スクロール可能のままバーを隠す。付ける=非表示 / 外す=表示 */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

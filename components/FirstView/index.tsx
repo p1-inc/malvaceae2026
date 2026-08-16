@@ -1,8 +1,14 @@
 import Image from "next/image";
 import { cn } from "@/lib/tailwindUtil";
+import type { Product } from "@/types/product";
+import { CollectionsButton } from "./CollectionsButton";
 import { TitleMark } from "./TitleMark";
 
-export function FirstView() {
+type FirstViewProps = {
+  products: Product[];
+};
+
+export function FirstView({ products }: FirstViewProps) {
   return (
     <section className="relative aspect-[5/2] w-full overflow-hidden text-white">
       <Image
@@ -32,19 +38,7 @@ export function FirstView() {
           一生ものの輝き。
         </p>
 
-        <a
-          href="#products"
-          className={cn(
-            "mt-[clamp(0.75rem,2vw,1.75rem)] inline-flex w-full items-center justify-center",
-            "max-w-[clamp(8rem,22vw,20rem)]",
-            "rounded-sm bg-[#b01f24] px-[clamp(0.75rem,1.8vw,1.5rem)] py-[clamp(0.375rem,1vw,0.875rem)]",
-            "text-[clamp(0.75rem,1.6vw,1.375rem)] text-white",
-            "transition-colors hover:bg-[#8a181c]",
-          )}
-        >
-          Collections →
-        </a>
-
+        <CollectionsButton products={products} />
       </div>
     </section>
   );
