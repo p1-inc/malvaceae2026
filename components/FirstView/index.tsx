@@ -28,8 +28,9 @@ export function FirstView({ products }: FirstViewProps) {
 
         <p
           className={cn(
-            "mt-[4%] ml-[3%]",
-            "font-serif text-[clamp(0.75rem,2vw,1.5rem)] font-bold leading-relaxed",
+            "mt-[7%] ml-[3%]",
+            "font-serif text-[clamp(0.75rem,2vw,1.5rem)] font-medium leading-snug",
+            "font-features-['chws'_1]",
             "text-[#b01f24]",
           )}
         >

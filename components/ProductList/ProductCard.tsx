@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cn } from "@/lib/tailwindUtil";
 import type { Product } from "@/types/product";
 import {
   Dialog,
@@ -8,6 +9,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
+const categoryBadgeColor: Record<
+  NonNullable<Product["category"]>,
+  string
+> = {
+  necklace: "bg-[#af9436]",
+  ring: "bg-[#7d8a7c]",
+  pierce: "bg-[#a98d8b]",
+  bracelet: "bg-[#8b8681]",
+  other: "bg-zinc-400",
+};
 
 type ProductCardProps = {
   product: Product;
@@ -19,6 +31,9 @@ export function ProductCard({
   imageSizes = "(min-width: 1024px) 20vw, (min-width: 640px) 45vw, 30vw",
 }: ProductCardProps) {
   const { details } = product;
+  const badgeColor = product.category
+    ? categoryBadgeColor[product.category]
+    : categoryBadgeColor.other;
 
   const rows = [
     { label: "品番", value: details.code },
@@ -50,13 +65,19 @@ export function ProductCard({
           </div>
           <div className="mt-3 space-y-0.5">
             {product.description ? (
-              <p className="inline-flex w-fit items-center rounded-full bg-zinc-400 px-3 py-1 text-[9px] leading-none tracking-wide text-white">
+              <p
+                className={cn(
+                  "inline-flex w-fit items-center rounded-full px-3 py-1 text-[9px] leading-none tracking-wide text-white",
+                  badgeColor,
+                )}
+              >
                 {product.description}
               </p>
             ) : null}
             <h3 className="mt-1 text-xs tracking-wide">{product.name}</h3>
             <p className="text-xs">
-              ¥{product.price.toLocaleString("ja-JP")}
+              <span className="mr-0.5">¥</span>
+              {product.price.toLocaleString("ja-JP")}
             </p>
           </div>
         </button>
@@ -76,7 +97,12 @@ export function ProductCard({
           </div>
           <div className="min-w-0 flex-1">
             {product.description ? (
-              <p className="inline-flex w-fit items-center rounded-full bg-zinc-400 px-3 py-1 text-[9px] leading-none tracking-wide text-white">
+              <p
+                className={cn(
+                  "inline-flex w-fit items-center rounded-full px-3 py-1 text-[9px] leading-none tracking-wide text-white",
+                  badgeColor,
+                )}
+              >
                 {product.description}
               </p>
             ) : null}
@@ -84,8 +110,9 @@ export function ProductCard({
               {product.name}
             </DialogTitle>
             <p className="mt-4 text-lg tracking-wide">
-              ¥{product.price.toLocaleString("ja-JP")}
-              <span className="ml-2 text-sm text-zinc-500">
+              <span className="mr-0.5">¥</span>
+              {product.price.toLocaleString("ja-JP")}
+              <span className="ml-2 text-sm tracking-widest text-zinc-500">
                 (税抜／送料無料)
               </span>
             </p>
